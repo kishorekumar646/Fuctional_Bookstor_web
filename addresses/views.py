@@ -28,7 +28,7 @@ class Addresses(APIView):
 
     def post(self, request):
         address = AddressSerializer(data=request.data)
-        if address.is_valid():
+        if address.is_valid(raise_exception=True):
             address.save()
             return Response(address.data, status=status.HTTP_201_CREATED)
         return Response(address.errors, status=status.HTTP_400_BAD_REQUEST)
@@ -39,7 +39,7 @@ class Addresses(APIView):
         try:
             address = Address.objects.get(slug=slug)
             serializer = AddressSerializer(address, data=request.data)
-            if serializer.is_valid():
+            if serializer.is_valid(raise_exception=True):
                 serializer.save()
                 return Response(serializer.data)
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

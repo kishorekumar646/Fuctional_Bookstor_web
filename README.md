@@ -1,29 +1,22 @@
 # Book Store
 This repo includes book store backend. 
 
-# create project
+# Pre Requesite
+  - Python3
+  - PostgresQL
+  - NodeJS
 
-```
-$ django-admin project site_name
-```
 # Installation
+  - if not install virtualenv package ``` $ pip install virtualenv ```
+  - ``` $ python -m virtualenv venv ```
+  - Activate env ``` $ source venv/bin/acticate ```
+  - Create .env file from root folder.
+  - Copy the env.sample file to .env and add your db credentials.
+  - For install dependencies ``` $ pip install -r requirements.txt ```
 
-  - Create .env file root folder
-  - Copy the env.sample file to .env and add credentials.
-  - Activate a new virtualenv and install the required packages using:
-  - ```$ pip install -r requirements.txt```
-  
-# Errors and Solutions
- If already port is running you can use below command for mac
- ```
- $ lsof -t -i tcp:8000 | xargs kill -9
- ```
- If you are facing the following error while installation:
- ```python setup.py egg_info" failed with error code 1```
- On Linux:
- ```sudo apt-get install libmysqlclient-dev```
- On Mac:
- ```brew install mysql```
+# Fix Issues
+  - If getting error like `Error: That port is already in use.` use bellow command.
+  - ``` lsof -t -i tcp:8000 | xargs kill -9 ```
  
 # How to create database with user
 

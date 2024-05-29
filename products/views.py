@@ -1,9 +1,17 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework import status
+from rest_framework import status, viewsets
+from rest_framework.authentication import SessionAuthentication
+from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from .serializers import BookSerializer
 from .models import Book
 
+
+class ProductView(viewsets.ModelViewSet):
+    queryset = Book.objects.all().order_by('-id')
+    serializer_class = BookSerializer
+    authentication_classes = [SessionAuthentication]
+    permission_classes = [IsAuthenticatedOrReadOnly]
 
 class Products(APIView):
 
@@ -29,7 +37,7 @@ class Products(APIView):
         
     def post(self, request):
         book = BookSerializer(data=request.data)
-        if book.is_valid():
+        if book.is_valid(raise_exception=True):
             book.save()
             return Response(book.data, status=status.HTTP_201_CREATED)
         return Response(book.errors, status=status.HTTP_400_BAD_REQUEST)
@@ -40,7 +48,7 @@ class Products(APIView):
         try:
             book = Book.objects.get(slug=slug)
             serializer = BookSerializer(book, data=request.data)
-            if serializer.is_valid():
+            if serializer.is_valid(raise_exception=True):
                 serializer.save()
                 return Response(serializer.data)
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

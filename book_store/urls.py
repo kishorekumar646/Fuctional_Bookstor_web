@@ -25,7 +25,8 @@ admin.site.index_title = 'Dashboard'
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    re_path(r'',include('products.urls')),
+    re_path(r"^api-auth/", include("rest_framework.urls", namespace="rest_framework")),
+    re_path(r'^api/',include('products.urls')),
     re_path(r'^accounts/',include('accounts.urls')),
     # re_path(r'^orders/',include('orders.urls')),
     # re_path(r'^addresses/',include('addresses.urls')),
