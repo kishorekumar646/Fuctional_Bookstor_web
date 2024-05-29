@@ -1,7 +1,7 @@
 # Book Store
 This repo includes book store backend. 
 
-# Pre Requesite
+# Pre Requisite
   - Python3
   - PostgresQL
   - NodeJS
