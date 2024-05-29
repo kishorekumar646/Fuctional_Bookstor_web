@@ -1,0 +1,42 @@
+# IDE files
+.idea
+.vscode
+.run
+
+# Dependency directory
+# Commenting this out is preferred by some people, see
+# https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git
+node_modules
+
+# Logs
+logs
+*.log
+
+# cloned repos
+master
+mock/*
+context*/
+/config/
+undefined/
+
+# Yarn
+yarn.lock
+.yarn*
+
+# Yalc files
+.yalc
+yalc.lock
+
+# Legacy run config files
+runConfigs/*
+
+# Results folder
+results*/
+
+# targets-context
+targets-context
+
+# Dot files
+.madgerc
+.env
+db.*
