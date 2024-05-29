@@ -8,9 +8,15 @@ node_modules/
 dist/
 venv/
 env/
-__pycache__/
 *.py[cod]
 
+# mypy
+.mypy_cache/
+
+# Only for Development only
+**/migrations/**
+!**/migrations
+!**/migrations/__init__.py
 
 # Compiled Java class files
 *.class
@@ -20,8 +26,8 @@ __pycache__/
 *.mypy_cache
 *.vscode
 *.env
-**/migrations/**
-__pycache__/
+**/migrations/__pycache__/
+**/__pycache__/
 
 # Log files
 *.log
