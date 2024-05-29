@@ -15,8 +15,7 @@ This repo includes book store backend.
   - For install dependencies ``` $ pip install -r requirements.txt ```
 
 # Fix Issues
-  - If getting error like `Error: That port is already in use.` use bellow command.
-  - ``` lsof -t -i tcp:8000 | xargs kill -9 ```
+  - If getting error like `Error: That port is already in use.` use this command ``` lsof -t -i tcp:8000 | xargs kill -9 ```.
  
 # How to create database with user
 
