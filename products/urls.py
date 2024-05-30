@@ -7,5 +7,5 @@ router.register('Products Managing Api''s', ProductView, basename='Book')
 
 urlpatterns = [
     path('', include(router.urls), name='home'),
-    path('product/<slug>/', Products.as_view(), name='product')
+    # path('product/<slug>/', Products.as_view(), name='product')
 ]
